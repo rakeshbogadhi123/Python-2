@@ -1,1 +1,15 @@
+Print according to postfix int 
+Input:
+c_code_3,hello_world_1,dictionary_2
 
+n=input().split(',')
+l=lambda x:(x.split('_')[-1])
+n=sorted(n,key=l,reverse=False)
+for i in range(len(n)):
+    if i!=len(n)-1:
+        print(n[i],end=',')
+    else:
+        print(n[i])
+
+Output:
+hello_world_1,dictionary_2,c_code_3
