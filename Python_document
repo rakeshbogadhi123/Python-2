@@ -10,20 +10,6 @@ functions:
 
 ----Examples of function-------
 1.
->>> pairs=[]
->>> for caps in ['A','B','C']:
-...     for small in ['a','b','c']:
-...         paris.append(caps+small)
-...
->>> pairs=[]
->>> for caps in ['A','B','C']:
-...     for small in ['a','b','c']:
-...         pairs.append(caps+small)
-... 
->>> pairs
-['Aa', 'Ab', 'Ac', 'Ba', 'Bb', 'Bc', 'Ca', 'Cb', 'Cc']
-
-2.
 >>> def greet(name='mahesh',greeting='hola'):
 ...     print(greeting+' '+name+'!')
 ... 
@@ -388,6 +374,20 @@ for each_key in keys:
 
 
 --------- Editing part-2------------------
+>>> pairs=[]
+>>> for caps in ['A','B','C']:
+...     for small in ['a','b','c']:
+...         paris.append(caps+small)
+...
+>>> pairs=[]
+>>> for caps in ['A','B','C']:
+...     for small in ['a','b','c']:
+...         pairs.append(caps+small)
+... 
+>>> pairs
+['Aa', 'Ab', 'Ac', 'Ba', 'Bb', 'Bc', 'Ca', 'Cb', 'Cc']
+
+2.
 ------------
 
 
