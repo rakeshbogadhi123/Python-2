@@ -1,12 +1,29 @@
 functions:
+	Positional arguments=>constant values(integers,2,'strings',float)
+	keyword arguments=>keywords(passing values like(mahi =1,mahi='pyhton'))
+	
 	positional arguments should follow key word arguments.
 	DEFAULT ARGUMENTS
 	-->def (name='world',greeting='hello'):
 			return 
 	NONE would be return if nothing is given
 
+----Examples of function-------
+1.
+>>> pairs=[]
+>>> for caps in ['A','B','C']:
+...     for small in ['a','b','c']:
+...         paris.append(caps+small)
+...
+>>> pairs=[]
+>>> for caps in ['A','B','C']:
+...     for small in ['a','b','c']:
+...         pairs.append(caps+small)
+... 
+>>> pairs
+['Aa', 'Ab', 'Ac', 'Ba', 'Bb', 'Bc', 'Ca', 'Cb', 'Cc']
 
-
+2.
 >>> def greet(name='mahesh',greeting='hola'):
 ...     print(greeting+' '+name+'!')
 ... 
@@ -21,6 +38,7 @@ hola rakseh!
 hola jp!
 
 ------operations-----
+
 >>> def add(a,b):
 ...     return a+b
 ... 
@@ -60,16 +78,17 @@ TypeError: 'str' object is not callable
 
 ---------------------------------
 
-
-
 LAMBDA
-			Used to write a short function in a single line 
-			Drawback:
-						difficult to read and understand.
-
+	Advantage:
+		Used to write a short function in a single line 
+	Drawback:
+		Difficult to read and understand.
+	
 #def add(a, b):
 #    return (a+b)
-add= lambda x, y:x+y
+
+Single line using lambda:
+	=>add= lambda x, y:x+y
 
 
 ---------------------------------
@@ -112,7 +131,89 @@ passing multiple keyword arguments
 
 
 -----------------------------------------------------------------------
-Unpacking the dictionary items
+
+Comprehension way of writing the lists:
+
+>>> list=[item*2+1 for item in range(0,10)]                                                                                      
+>>> list
+[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+>>> list=[item%5==0 for item in range(0,10)]                                                                                     
+>>> list
+[True, False, False, False, False, True, False, False, False, False]
+>>> list=[item%5==0 and list%2==0 for item in range(0,10)]   
+
+>>> list=[item%item==0 for item in range(1,10)]  
+
+>>> list
+[True, True, True, True, True, True, True, True, True]
+>>> list=[item%item==0 for item in range(2,10)]                                                                                  
+>>> list
+[True, True, True, True, True, True, True, True]
+>>> list=[item%item==0 for item in range(2,10)]
+>>> a=2
+>>> for a in range(2,10):
+...     list=[item%a==0 for item in range(2,10)]                                                                                 
+... 
+>>> list
+[False, False, False, False, False, False, False, True]
+>>> a=2
+>>> for a in range(2,10):                                                                                                        
+...     list=[item%a==0 for item in range(2,10)]
+...     a=a+1
+... 
+>>> list
+[False, False, False, False, False, False, False, True]
+>>> list=[item+5 for item in range(0,10)]                                                                                        
+>>> list
+[5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+
+>>> even_numbers=[items for items in range(0,10,2)]
+>>> even_numbers
+[0, 2, 4, 6, 8]
+>>> even_numbers=[items for items in range(0,10,-2)]
+>>> even_numbers
+[]
+>>> even_numbers=[items for items in range(0,10,2)]
+>>> even_numbers=[[items for items in range(0,10,2)]for i in range(10,0,-2)]                                                     
+>>> even_numbers
+[[0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8]]
+>>> even_numbers=[[items for items in range(0,10,2)]for i in range(10,0,2)]
+>>> even_numbers
+[]
+>>> even_numbers=[[items for items in range(0,10,2)]for i in range(0,10,2)]
+>>> even_numbers
+[[0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8]]
+>>> even_numbers=[[items for items in range(0,4)]for i in range(0,4)]                                                            
+>>> even_numbers
+[[0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3]]
+
+------------------------------------------------------------------------
+
+mapping list with comprehension:
+
+
+>>> def ctos(n):
+...     return str(n)
+... 
+>>> strings=[ctos(n) for n in range(0,10)]                                                                                       
+>>> strings
+['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+>>> def ctos(n):
+...     return float(n)
+... 
+>>> strings=[ctos(n) for n in range(0,10)]
+>>> strings
+[0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
+>>> def ctos(n):
+...     return chr(n)
+... 
+>>> strings=[ctos(n) for n in range(97,123)]
+>>> strings
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+-------------------------------------------------------------------------
+
+Unpacking the dictionary items:
 ==> 
 d = {10:'ten' , 9:'nine' , 11:'eleven}
 
@@ -138,137 +239,9 @@ for each_key in keys:
 
 
 
+--------------------------- Tuples --------------------------------------------
 
 
-
-
----------------part-1--------------
->>> list=[item*2+1 for item in range(0,10)]                                                                                      
->>> list
-[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
->>> list=[item%5==0 for item in range(0,10)]                                                                                     
->>> list
-[True, False, False, False, False, True, False, False, False, False]
->>> list=[item%5==0 and list%2==0 for item in range(0,10)]                                                                       
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 1, in <listcomp>
-TypeError: unsupported operand type(s) for %: 'list' and 'int'
->>> list=[item%5==0 and item%2==0 for item in range(0,10)]                                                                       
->>> list
-[True, False, False, False, False, False, False, False, False, False]
->>> list=[item%item==0 for item in range(0,10)]                                                                                  
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 1, in <listcomp>
-ZeroDivisionError: integer division or modulo by zero
->>> list=[item%item==0 for item in range(1,10)]                                                                                  
->>> list
-[True, True, True, True, True, True, True, True, True]
->>> list=[item%item==0 for item in range(2,10)]                                                                                  
->>> list
-[True, True, True, True, True, True, True, True]
->>> list=[item%item==0 for item in range(2,10)]
->>> a=2
->>> for a in range(2,10):
-...     list=[item%a==0 for item in range(2,10)]                                                                                 
-... 
->>> list
-[False, False, False, False, False, False, False, True]
->>> a=2
->>> for a in range(2,10):                                                                                                        
-...     list=[item%a==0 for item in range(2,10)]
-...     a=a+1
-... 
->>> list
-[False, False, False, False, False, False, False, True]
->>> list=[item+5 for item in range(0,10)]                                                                                        
->>> list
-[5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
->>> pairs=[]
->>> for caps in ['A','B','C']:
-...     for small in ['a','b','c']:
-...         paris.append(caps+small)
-... 
-Traceback (most recent call last):
-  File "<stdin>", line 3, in <module>
-NameError: name 'paris' is not defined
->>> pairs=[]
->>> for caps in ['A','B','C']:
-...     for small in ['a','b','c']:
-...         pairs.append(caps+small)
-... 
->>> pairs
-['Aa', 'Ab', 'Ac', 'Ba', 'Bb', 'Bc', 'Ca', 'Cb', 'Cc']
-
-----------------------
-
-
->>> even_numbers=[items for items in range(0,10,2)]
->>> even_numbers
-[0, 2, 4, 6, 8]
->>> even_numbers=[items for items in range(0,10,-2)]
->>> even_numbers
-[]
->>> even_numbers=[items for items in range(0,10,2)]
->>> even_numbers=[[items for items in range(0,10,2)]for i in range(10,0,-2)]                                                     
->>> even_numbers
-[[0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8]]
->>> even_numbers=[[items for items in range(0,10,2)]for i in range(10,0,2)]
->>> even_numbers
-[]
->>> even_numbers=[[items for items in range(0,10,2)]for i in range(0,10,2)]
->>> even_numbers
-[[0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8], [0, 2, 4, 6, 8]]
->>> even_numbers=[[items for items in range(0,4)]for i in range(0,4)]                                                            
->>> even_numbers
-[[0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3]]
-
-
------------
-mapping list with comprehension
-
-
->>> def ctos(n):
-...     return str(n)
-... 
->>> strings=[ctos(n) for n in range(0,10)]                                                                                       
->>> strings
-['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
->>> def ctos(n):
-...     return float(n)
-... 
->>> strings=[ctos(n) for n in range(0,10)]
->>> strings
-[0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
->>> def ctos(n):
-...     return chr(n)
-... 
->>> strings=[ctos(n) for n in range(97,123)]
->>> strings
-['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-
-
----------part-2------------------
-
-gaddam-mahesh:~/environment $ python3
-Python 3.6.8 (default, Aug  2 2019, 17:42:44)
-[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
-Type "help", "copyright", "credits" or "license" for more information.
->>> words=['eat','code','sleep','repeat']
->>> [len(words) for i in words]
-[4, 4, 4, 4]
->>> [len(word) for i in words]
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 1, in <listcomp>
-NameError: name 'word' is not defined
->>> [len(word) for i in words]
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "<stdin>", line 1, in <listcomp>
-NameError: name 'word' is not defined
 >>> mixed=(0.5,'mahesh',5)
 >>> type(mixed)
 <class 'tuple'>
@@ -283,18 +256,9 @@ NameError: name 'word' is not defined
 >>> mixed[2::-2]
 (5, 0.5)
 >>>
->>>
->>> empty_tuple()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'empty_tuple' is not defined
 >>> empty_tuple=()
 >>> type(empty_tuple)
 <class 'tuple'>
->>> single_tuple(22,)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'single_tuple' is not defined
 >>> single_tuple=(22,)
 >>> type(single_tuple)
 <class 'tuple'>
@@ -313,13 +277,6 @@ NameError: name 'single_tuple' is not defined
 'mahi'
 >>> e
 0.5
->>> f
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'f' is not defined
->>> my_tuple=(input(),input())
-mahesh
-mahi
 >>> a,b=my_tuple
 >>> a
 'mahesh'
@@ -336,10 +293,7 @@ mahi
 >>> a=123,0.345,'mahi'
 >>> a
 (123, 0.345, 'mahi')
->>> a.split(',')
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AttributeError: 'tuple' object has no attribute 'split'
+
 >>> a=(1,'hey',1.2,[1,2])
 >>> a[:-1]
 (1, 'hey', 1.2)
@@ -370,12 +324,8 @@ AttributeError: 'tuple' object has no attribute 'split'
 15
 >>> b
 8
->>> def get_sum_even_odd(a,b):
-...     a=sum[i for i in range(a) if i%2==0]
-  File "<stdin>", line 2
-    a=sum[i for i in range(a) if i%2==0]
-              ^
-SyntaxError: invalid syntax
+
+-------------Fuction calling of tuple with *args----------------
 >>> def more_args(*args):
 ...     print(args)
 ... 
@@ -394,6 +344,7 @@ SyntaxError: invalid syntax
 (1, 2, 3, 4)
 >>> more_args(a)                                                                                                                 
 ([1, 2, 3, 4],)
+----------------------------------------------------------
 >>> range(5,100,2)[-4]
 93
 >>> max(range(5,100,2))
@@ -402,17 +353,8 @@ SyntaxError: invalid syntax
 100
 >>> min(range(100,5,-2))
 6
->>> (1,232,4,8).append(56)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AttributeError: 'tuple' object has no attribute 'append'
 >>> (1,232,4,8).index(8)                                                                                                         
 3
->>> (1,2,34,56,67,231,,123).count('')
-  File "<stdin>", line 1
-    (1,2,34,56,67,231,,123).count('')
-                      ^
-SyntaxError: invalid syntax
 >>> (1,2,34,56,67,231,123).count('12')                                                                                           
 0
 >>> (1,2,34,56,67,231,123).count('123')                                                                                          
@@ -422,6 +364,31 @@ SyntaxError: invalid syntax
 >>> [1,2,3,4].append(55)
 >>> a=[1,2,3,4].append(56)
 >>> a
+
+---------------Guess the output-----------
+**************** Doubts Section ***************
+
+
+
+
+
+
+
+**************************************************
+
+
+******************* Suggestions******************
+
+
+
+
+
+
+**************************************************
+
+
+--------- Editing part-2------------------
+------------
 
 
 
