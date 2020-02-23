@@ -62,4 +62,90 @@ for _ in range(0,int(input())):
 second_highest = sorted(list(set([marks for name, marks in marksheet])))[1]
 print('\n'.join([a for a,b in sorted(marksheet) if b == second_highest]))
 
-----------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+m=int(input())
+p=m
+a={};b={};result=[]
+for i in range(m):
+    c,p=map(int,input().split())
+    a.update({c:p})
+    
+    
+n=int(input())
+for i in range(n):
+    c1,p1=map(int,input().split())
+    b.update({c1:p1})
+
+a=sorted(a.items(),reverse=True)
+b=sorted(b.items(),reverse=True)
+
+if (m-n)>0:
+    for i in range(m-n):
+        result.append(str(a[i][1]))
+elif (n-m)>0:
+    for i in range(n-m):
+        result.append(str(b[i][1]))
+      
+for i in range(m):
+    for j in range(n):
+        if a[i][0]==b[j][0]:
+            result.append(str(a[i][1]+b[j][1]))
+            
+c=0
+z=max(m,n)
+for i in range(len(result)):
+    if result[i]=='0':
+        c+=1        
+    
+if c==len(result):
+    print(0)
+else:
+    for i in range(len(result)):
+        z=z-1
+        if i!=len(result)-1 and result[i]!='0':
+            print(str(result[i])+'x^'+str(z),end=' + ')
+        else:
+            print(result[i])
+
+
+Input:
+4
+0 5
+1 0
+2 10
+3 6
+3
+0 1
+1 2
+2 4
+
+Output:
+6x^3 + 14x^2 + 2x^1 + 6
+
+
+---------------------------------------------------
+
+Input:
+4
+0 5
+1 0
+2 10
+3 6
+4
+0 -5
+1 0
+2 -10
+3 -6
+
+Output:
+0
+
+
+---------------------------------------------------
+
+
+
+
+
