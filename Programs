@@ -148,4 +148,28 @@ Output:
 
 
 
+Input:
+Anand,Ramesh,Kiran
+12,11,10
+
+Output:
+Anand,12.0
+Ramesh,11.0
+Kiran,10.0
+
+
+---------------------------------------------------
+
+names=input().split(',')
+value=input().split(',')
+x=len(names)
+values=[float(i) for i in value]
+d={names[i]:values[i] for i in range(x)}
+d=sorted(d.items(),key=lambda x:x[1],reverse=True)
+for k,v in d:
+    print(k,v,sep=',')
+
+
+------------------------------------------------------------------------
+
 
