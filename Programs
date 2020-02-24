@@ -173,3 +173,38 @@ for k,v in d:
 ------------------------------------------------------------------------
 
 
+
+Input:
+Anand,Ramesh,Kiran
+12,11,10
+Ramesh
+
+Output:
+Ramesh,16.0
+Anand,12.0
+Kiran,10.0
+
+
+---------------------------------------------------
+
+name=input().split(',')
+score=input().split(',')
+names=input().split(',')
+score=[float(i) for i in score]
+dic={name[i]:score[i] for i in range(len(name))}
+c=0
+d={}
+
+for i in names:
+    if i in name:
+        dic[i]=dic[i]+5.0
+    else:
+        dic.update({i:5.0})
+
+dic=sorted(dic.items(),reverse=True)
+dic=sorted(dic,key=lambda x:x[1],reverse=True)
+
+for k,v in dic:
+    print(k,v,sep=',')
+
+
