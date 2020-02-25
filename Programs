@@ -127,6 +127,52 @@ Output:
 
 ---------------------------------------------------
 
+
+m=int(input())
+
+x={}
+z=[]
+z1=[]
+for i in range(m):
+    a,b=input().split()
+    x.update({a:b})
+#print(x)
+y={}
+n=int(input())
+for i in range(n):
+    c,d=input().split()
+    y.update({c:d})
+#print(y)
+z={}
+for i in x or y:
+    if i in x and y:
+        if x.get(i)!=None:
+            a=x.get(i)
+        else:
+            a=x.get(i,0)
+            print(a)
+        if y.get(i)!=None:
+            b=y.get(i)
+        else:
+            b=y.get(i,0)
+        z[int(i)]=int(a)+int(b)
+z=sorted(z.items(),reverse=True)
+c=0
+for k,v in z:
+    if v!=0:
+        c=c+1
+    if k >1 and v!=0:
+        print(str(v)+'x^'+str(k)+' + ',end='')
+    elif k==1 and v!=0:
+        print(str(v)+'x + ',end='')
+    else:
+        if(v!=0):
+            print(str(v))
+
+if(c==0):
+    print('0')
+
+
 Input:
 4
 0 5
