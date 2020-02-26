@@ -254,3 +254,269 @@ for k,v in dic:
     print(k,v,sep=',')
 
 
+--------------------------------------------------------------------------------------------------------
+
+
+'''n=input().split()
+y=n.pop()
+x=ord(y)
+n.append(y)
+a=[]
+b=[]
+for i in range(len(n)):
+    if '0'<=n[i]<='9' or n[i]==y:
+        continue
+    else:
+        a.append(n[i-1])
+        a.append(n[i-2])
+    e=n[i-1]
+    r=n[i-2]
+    if n[i]=='+' or n[i]==x:
+        b.append(float(e)+float(r))
+    elif n[i]=='-' or n[i]==x:
+        b.append(float(e)-float(r))
+    elif n[i]=='*' or n[i]==x:
+        b.append(float(e)*float(r))
+    elif n[i]=='/' or n[i]==x:
+        b.append((float(e))//(float(r)))
+        
+if y=='+':
+    print(float(b[0])+float(b[1]))
+elif y=='-':
+    print(float(b[0])-float(b[1]))
+elif y=='*':
+    print(float(b[0])*float(b[1]))
+elif y=='/':
+    print(round(float(b[0])//float(b[1])))
+'''
+
+
+
+
+---------mahesh------------
+n=input().split()
+y=n.pop()
+#print(y)
+#k=[int(i) for i in n if '0'<=i<='9']
+#print(k)
+#print(n)
+result=[];d=0
+for i in range(len(n)):
+    if n[i]=='+':
+        e=k[d]
+        d=d+1
+        r=k[d]
+        d=d+1
+        result.append(e+r)
+    elif n[i]=='-':
+        e=k[d]
+        d=d+1
+        r=k[d]
+        d=d+1
+        result.append(e-r)
+    elif n[i]=='*':
+        e=k[d]
+        d=d+1
+        r=k[d]
+        d=d+1
+        result.append(e*r)
+    elif n[i]=='/':
+        e=k[d]
+        d=d+1
+        r=k[d]
+        d=d+1
+        result.append(e//r)
+
+if y=='+':
+    print(result[0]+result[1])
+elif y=='-':
+    print((result[0]-result[1]))
+elif y=='*':
+    print((result[0]*result[1]))
+elif y=='/':
+    print((result[0]//result[1]))
+
+
+
+if i!=len(result)-1 and result[i]!=0:
+            if result[i+1]<0 and result[i]!=0:
+                if z!=1:
+                    print(str(abs(result[i]))+'x^'+str(z),end=' - ')
+                else:
+                    print(str(abs(result[i]))+'x',end=' - ')
+                    
+            else:
+                if z!=1:
+                    print(str(abs(result[i]))+'x^'+str(z),end=' + ')
+                else:
+                    print(str(abs(result[i]))+'x',end=' + ')
+                    
+        else:
+            print(abs(result[i]))
+            
+---------------------------
+
+4,5
+ADD
+
+Output:
+9.0
+
+def get_result(a, b, operation):
+    # update operation_dict
+    operation_dict = {'ADD':add,'SUBTRACT':subtract,'MULTIPLY':multiply,'DIVIDE':divide}
+
+    func = operation_dict[operation]
+
+    result = func(a, b)
+    
+    result=(round(result,2))
+    
+    print(result)
+
+#def add(a, b):
+#    return (a+b)
+add= lambda x, y:x+y
+
+def subtract(a, b):
+    return (a-b)
+
+
+def multiply(a, b):
+    return (a*b)
+
+
+def divide(a, b):
+    return (a/b)
+
+
+a, b= input().split(",")
+operation=input()
+a = float(a)
+b = float(b)
+get_result(a, b, operation)
+
+
+--------------------
+a=input().lower()
+a=a.split()
+sort_key=sorted(a)
+dic_kv={i:a.count(i) for i in sort_key}
+dic_kv=sorted(dic_kv.items(),key=lambda x:x[1],reverse=True)
+for k,v in dic_kv:
+    print(k,v,sep=',')
+
+Input:
+three Three tHrEe hi hi hi
+
+Output:
+hi,3
+three,3
+
+
+---------------------------------------------------
+
+n=input().split()
+a=['+','-','*','/']
+b=[]
+for i  in n:
+    if i.isdigit()==True:
+        b.append(int(i))
+    elif i=='+':
+        x=b.pop()
+        y=b.pop()
+        #r=y+x
+        b.append(y+x)
+    elif i=='-':
+        x=b.pop()
+        y=b.pop()
+        #r=y-x
+        b.append(y-x)
+    elif i=='*':
+        x=b.pop()
+        y=b.pop()
+        b.append(y*x)
+    elif i=='/':
+        x=b.pop()
+        y=b.pop()
+        b.append(y/x)
+for i in range(len(b)):
+    print(int(b[i]))
+
+Input:
+7 8 + 3 2 + /
+
+Output:
+3
+
+
+---------------------------------------------------
+
+student_math=input().split(',')
+math_marks=input().split(',')
+math_marks=[int(i) for  i in math_marks]
+student_physics=input().split(',')
+physics_marks=input().split(',')
+physics_marks=[int(i) for i in physics_marks]
+student_chem=input().split(',')
+chem_marks=input().split(',')
+chem_marks=[int(i) for i in chem_marks]
+thre_input=input().split(',')
+thre_input=[int(i) for i in thre_input]
+
+a=set();b=set();c=set();min_criteria=[];passed_all=[];c1=0;count=0
+#print(type(a))
+for i in range(len(math_marks)):
+    if math_marks[i]>=thre_input[0]:
+        c1+=1
+        a.add(student_math[i])
+#print(a)
+for i in range(len(physics_marks)):
+    if physics_marks[i]>=thre_input[1]:
+        c1+=1
+        b.add(student_physics[i])
+#print(b)
+for i in range(len(chem_marks)):
+    if chem_marks[i]>=thre_input[2]:
+        c1+=1
+        c.add(student_chem[i])
+#print(c)
+if c1==0:
+    print('No Students')
+    print('No Students')
+else:    
+    min_criteria=a.union(b,c)
+    min_criteria=list(min_criteria)
+    min_criteria.sort()
+    print(",".join(min_criteria))
+    passed_all=a.intersection(b,c)
+    passed_all=list(passed_all)
+    passed_all.sort()
+    #print(",".join(passed_all))
+    for i in range(len(passed_all)):
+        count+=1
+        if i != len(passed_all)-1:
+            print(passed_all[i],end=',')
+        else:
+            print(passed_all[i])
+    if count==0:
+        print('No Students')
+
+
+
+Input:
+Ram,Naresh,Haran,Raghu
+12,13,14,15
+Ram,Naresh,Haran
+23,24,25
+Naresh,Haran,Raghu
+34,35,36
+14,5,6
+
+Output:
+Haran,Naresh,Raghu,Ram
+Haran
+
+
+---------------------------------------------------
+
