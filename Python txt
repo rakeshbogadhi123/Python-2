@@ -1,1 +1,49 @@
+n=int(input())
+d={};d1={}
+for i in range(n):
+    ex_a=input().split()
+    key=int(ex_a[0])
+    value=int(ex_a[1])
+    d.update({key:value})
 
+m=int(input())
+for j in range(m):
+    ex_b=input().split()
+    key=int(ex_b[0])
+    value=int(ex_b[1])
+    d1.update({key:value})
+
+
+for key in d1:
+    if key in d:
+        d[key]=d[key]+d1[key]
+    else:
+        d.update({key:d1[key]})
+        
+
+#d_zero=0
+#if d.get(0,1)==0:
+#    d_zero=1
+    
+res_d={}
+for i in d:
+    if d[i]!=0:
+        res_d.update({i:d[i]})
+res_d=sorted(res_d.items(),key=lambda x:x[0],reverse=True)
+
+if len(res_d)==0:
+    print("0")
+else:
+    r1=[]
+    for k,v in res_d:
+        r1.append("{}x^{}".format(v,k))
+        #print(r1)
+        r2=(" + ").join(r1)
+        #print(r2)
+        r2=r2.replace("x^0","")
+        r2=r2.replace(" + -"," - ")
+        r2=r2.replace("x^1","x")
+        r2=r2.replace("1x^","x^")
+        r2=r2.replace("1x","x")
+        #r2=r2.replace("x^0","")
+    print(r2)
