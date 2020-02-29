@@ -47,3 +47,49 @@ else:
         r2=r2.replace("1x","x")
         #r2=r2.replace("x^0","")
     print(r2)
+----------------
+n_teams=int(input())
+result_dic={}
+print('{:<24}'.format('Team')+'| {:>2}'.format('MP')+' |'+' {:>2}'.format('W')+' |'+' {:>2}'.format('D')+' |'+
+' {:>2}'.format('L')+' |'+' {:>2}'.format('P')+' |')
+
+for i in range(n_teams):
+    team1,team2,outcome=input().split(';')
+    if team1 not in result_dic:
+        result_dic.update({team1:{'MP':0,'win':0,'draw':0,'loss':0,'p':0}})
+    if team2 not in result_dic:
+        result_dic.update({team2:{'MP':0,'win':0,'draw':0,'loss':0,'p':0}})
+    if outcome=='win':
+        result_dic[team1][outcome]+=1
+        result_dic[team2]['loss']+=1
+        result_dic[team1]['MP']+=1
+        result_dic[team2]['MP']+=1
+        result_dic[team1]['p']+=3
+    elif outcome=='loss':
+        result_dic[team1][outcome]+=1
+        result_dic[team2]['win']+=1
+        result_dic[team1]['MP']+=1
+        result_dic[team2]['MP']+=1
+        result_dic[team2]['p']+=3
+    elif outcome=='draw':
+        result_dic[team1][outcome]+=1
+        result_dic[team2][outcome]+=1
+        result_dic[team1]['MP']+=1
+        result_dic[team2]['MP']+=1
+        result_dic[team1]['p']+=1
+        result_dic[team2]['p']+=1
+
+result_dic=sorted(result_dic.items())
+result_dic=sorted(result_dic,key=lambda x:x[1]['p'],reverse=True)
+
+for team,team_attr in result_dic:
+    print('{:<24}'.format(team)+
+    '| {:>2}'.format(team_attr['MP'])+
+    ' |'+' {:>2}'.format(team_attr['win'])+
+    ' |'+' {:>2}'.format(team_attr['draw'])+
+    ' |'+' {:>2}'.format(team_attr['loss'])+
+    ' |'+' {:>2}'.format(team_attr['p'])+' |')
+    
+    
+    
+    
