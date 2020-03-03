@@ -1,0 +1,57 @@
+no.of lines increase     ---> we use functions
+no.of functions increase ---> we use modules
+(Modular Programming) 
+Adv:
+    1.Breaking large files (simplicity)
+    2.More mangable (Easy Maintenance)
+    3.Reusability
+    4.Scoping
+    
+---------------------------------------------------------------------------------------------------    
+
+Executing as module
+
+1.It will be executed only once what we have written in the code
+2.Because of it when we called it taken as module and printed outcome
+>>> import my_module
+Hello World
+3.When we called it second time then it will not print anything.
+>>> import my_module
+>>> 
+
+def print_helloworld():
+	print('Hello World')
+
+print_helloworld()
+
+gaddam-mahesh:~/environment $ cd python
+gaddam-mahesh:~/environment/python $ python3
+>>> import my_module
+Hello World
+>>> import my_module
+>>> 
+>>> 
+
+---------------------------------------------------------------------------------------------------    
+
+Executing as script
+
+1.Running the entire files.
+
+gaddam-mahesh:~/environment $ cd python
+gaddam-mahesh:~/environment/python $ python3 my_module.py
+Hello World
+gaddam-mahesh:~/environment/python $ python3 my_module.py
+Hello World
+
+
+
+
+
+
+
+
+
+
+
+
