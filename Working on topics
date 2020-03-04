@@ -99,7 +99,151 @@ Hello World
 
 
 
+-------------------------------------------------------------------------------------------------------
 
+gaddam-mahesh:~/environment $ cd python_sample_package
+gaddam-mahesh:~/environment/python_sample_package $ cd ..
+gaddam-mahesh:~/environment $ cd python_sample_package/
+gaddam-mahesh:~/environment/python_sample_package $ python3
+Python 3.6.8 (default, Aug  2 2019, 17:42:44) 
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
+Python 3.6.8 (default, Aug  2 2019, 17:42:44) [GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import echo
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'echo'
+>>> import sound.effects
+sound package is getting imported!
+effects package is getting imported!
+>>> import sound.effects.echo
+Module echo.py has been loaded!
+>>> import sound.effects.echo.fun1()
+  File "<stdin>", line 1
+    import sound.effects.echo.fun1()
+                                  ^
+SyntaxError: invalid syntax
+>>> sound.effects.echo.fun1()                    
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'sound.effects.echo' has no attribute 'fun1'
+>>> sound.effects.echo.func
+sound.effects.echo.func1(
+sound.effects.echo.func2(
+sound.effects.echo.func3(
+>>> sound.effects.echo.func
+sound.effects.echo.func1(
+sound.effects.echo.func2(
+sound.effects.echo.func3(
+>>> sound.effects.echo.func1(
+... 
+... 
+... 
+... )
+echo function func1 has been called!
+>>> sound.effects.echo.func2()
+echo function func2 has been called!
+>>> sound.effects.echo.func3()                   
+echo function func3 has been called!
+>>> from sound.effects import echo
+>>> echo.fun1()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'sound.effects.echo' has no attribute 'fun1'
+>>> echo.func1()
+echo function func1 has been called!
+>>> from sound.effects import reverse
+Module reverse.py has been loaded!
+>>> reverse.func1()
+reverse function func1 has been called!
+>>> from sound.filters import equalizer
+filters package is getting imported!
+Module equalizer.py has been loaded!
+>>> equalizer.fuc1()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'sound.filters.equalizer' has no attribute 'fuc1'
+>>> equalizer.func1()
+equalizer function func1 has been called!
+  File "<stdin>", line 1
+    from sound.effects.echo from func1
+                               ^
+SyntaxError: invalid syntax
+>>> from sound.effects.echo import func1         
+>>> fun1()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'fun1' is not defined
+>>> func1()
+echo function func1 has been called!
+>>> from sound.effects.echo import *
+>>> func2()
+echo function func2 has been called!
+>>> func3()
+echo function func3 has been called!
+>>> func1()
+echo function func1 has been called!
+>>> func3()
+echo function func3 has been called!
+>>> from sound.effects
+sound.effects
+>>> from sound.effects.
+sound.effects.echo     sound.effects.reverse  
+>>> from sound.
+sound.effects  sound.filters  
+>>> from sound.effects import *
+>>> echo.func
+echo.func1(  echo.func2(  echo.func3(  
+>>> echo.func1()
+echo function func1 has been called!
+>>> from sound.effects import *
+>>> 
+>>> from importlib import reload
+>>> reload(sound)
+sound package is getting imported!
+<module 'sound' from '/home/ec2-user/environment/python_sample_package/sound/__init__.py'>
+>>> from sound.effects import *                                                                                                  
+>>> exit()
+gaddam-mahesh:~/environment/python_sample_package $ pythom3
+bash: pythom3: command not found
+gaddam-mahesh:~/environment/python_sample_package $ python3
+Python 3.6.8 (default, Aug  2 2019, 17:42:44) 
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sound.effects import *                                                                      
+sound package is getting imported!
+effects package is getting imported!
+Module echo.py has been loaded!
+Module reverse.py has been loaded!
+Module surround.py has been loaded!
+>>> from importlib import reload
+>>> reload(sound)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'sound' is not defined
+>>> from sound.effects import *
+>>> exit()
+gaddam-mahesh:~/environment/python_sample_package $ python3
+Python 3.6.8 (default, Aug  2 2019, 17:42:44) 
+[GCC 4.8.5 20150623 (Red Hat 4.8.5-28)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sound.effects import *
+sound package is getting imported!
+effects package is getting imported!
+Module echo.py has been loaded!
+Module reverse.py has been loaded!
+>>> from importlib import reload
+>>> reload(sound.effects)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'sound' is not defined
+>>> reload(echo)
+Module echo.py has been loaded!
+<module 'sound.effects.echo' from '/home/ec2-user/environment/python_sample_package/sound/effects/echo.py'>
+>>> 
+>>> 
+>>> 
+>>> from sound.effects import *
 
 
 
