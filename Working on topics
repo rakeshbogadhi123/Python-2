@@ -46,6 +46,57 @@ Hello World
 
 
 
+---------------------------------------------------------------------------------------------------    
+
+How to reload the module without exit() in interpreter:
+
+def print_helloworld():
+	print('Hello World')
+
+def print_one():
+	print('1')
+
+print(__name__)
+
+print_helloworld()
+print_one()
+
+let us assume that we have assed a function in the module where you are already in the interpreter but you have to check whether it then:
+
+we use:
+*Reloading module contd..*
+->Using reload function from importlib to reload module again.
+
+Take an example that i have added a function print_one:
+->so in line 6 i wanted to get the output but i have already in the interpreter,so it throws error(AttributeError: module 'my_module' has no attribute 'print_one')
+->So by using the reload module control we get output i.e (print_one()),unless without using this function it throws error.
+  >>> from importlib import reload
+  >>> reload(my_module)
+
+
+
+1.>>> import my_module
+2.Hello World
+3.>>> import my_module
+4.>>>
+5.>>> my_module.print_helloworld()
+Hello World
+6.>>> my_module.print_one()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'my_module' has no attribute 'print_one'
+7.>>> from importlib import reload
+8.>>> reload(my_module)
+my_module
+Hello World
+<module 'my_module' from '/home/ec2-user/environment/python/my_module.py'>
+9.>>> from importlib import reload
+10.>>> reload(my_module)
+my_module
+Hello World
+<module 'my_module' from '/home/ec2-user/environment/python/my_module.py'>
+11.>>> my_module.print_one()
+
 
 
 
