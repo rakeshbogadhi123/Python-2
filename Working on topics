@@ -246,7 +246,279 @@ Module echo.py has been loaded!
 >>> from sound.effects import *
 
 
+-------------------------------------------------------------------------------------------------------
 
+import random
+#value = random.randint(0,1)
+#print(value)
+'''
+greeting = ['Hello','Hi','Hey','Howdy','Hola']
+value = random.choice(greeting)
+print(value+' Mahi!')
+
+colors = ['Red',"Black","Blue"]
+results = random.choice(colors,weights=[50,50,75],k=10)
+print(results)'''
+deck = list(range(1,53))
+
+#random.shuffle(deck )
+
+print(deck)
+
+
+-----------------------------------------------------------------------------------------------------------
+
+import datetime
+
+tdy = datetime.date.today()
+print(tdy)
+print(tdy.day)
+print(tdy.weekday())
+print(tdy.isoweekday())
+
+
+
+import datetime
+
+tdy =datetime.date.today()
+
+#tdelta = datetime.timedelta(days=7)
+
+#print(tdy+tdelta)
+
+#print(tdy-tdelta)
+
+#timedelta is used to get differences or adding of time and represented as (tdelta)
+
+#date2 = date1 + timedelta
+#timedelta = date1 + date2
+
+bday = datetime.date(2020 , 5 ,14)
+
+till_bday=bday-tdy#this is time delta where we are using it to differences
+
+print(till_bday)
+
+print(till_bday.total_seconds())
+
+
+import datetime 
+
+dt = datetime.datetime(2016,12,31,12,35,45,1000)
+
+tdelta = datetime.timedelta(days=7)
+
+print(dt)
+
+print(dt+tdelta)
+
+import datetime
+import pytz
+
+
+#dt_today = datetime.datetime.today()
+#dt_now = datetime.datetime.now()
+#dt_utcnow = datetime.datetime.utcnow()
+
+#print(dt_today)
+#print(dt_now)
+#print(dt_utcnow)
+
+#dt = datetime.datetime(2016,7,26,12,30,45,tzinfo=pytz.UTC)
+#print(dt)
+
+#dt_now = datetime.datetime.now(tz=pytz.UTC)
+#print(dt_now)
+
+#dt_utcnow = datetime.datetime.utcnow().now(tz=pytz.UTC)
+#print(dt_utcnow)
+
+#for tz in pytz.all_timezones:
+#	print(tz)
+
+#dt_india = datetime.datetime.now()
+#dt_east = dt_india.astimezone(ptyz.timezone('US/Eastern'))
+#print(dt_east)
+#print(dt_india)
+
+dt_india = datetime.datetime.now(tz=pytz.timezone('US/Mountain'))
+#india_tz = pytz.timezone('')
+print(dt_india.strftime('%B %d %Y'))
+
+dt_str = 'March 04 2020'
+
+dt = datetime.datetime.strptime(dt_str,'%B %d %Y')
+print(dt)
+
+#strftime - datetime_to_string
+#strptime - string_to_datetime
+
+-----------------------------------------------------------------------------------------------
+
+def cheeseshop(item,*arguments,**keywords):              
+    print('--What kind of item do you want,sir?',item)
+    print('--We are out of that item',item)
+    for arg in arguments:
+        print(arg)
+    print('-'*40)
+    for kw in keywords:
+        print(kw,':',keywords[kw])
+
+
+
+
+cheeseshop("Limburger", "It's very runny, sir.",  
+           "It's really very, VERY runny, sir.",
+           shopkeeper="Michael Palin",
+           client="John Cleese",
+           sketch="Cheese Shop Sketch")
+
+#(*arguments)--take any number of arguments.
+#(**keywords)--take (key,value)pair as tuple format.
+#When we are calling the function if we pass parameters as 
+        cheeseshop("Limburger",
+           shopkeeper="Michael Palin",
+           client="John Cleese",
+           sketch="Cheese Shop Sketch",
+           "It's very runny, sir.",  
+           "It's really very, VERY runny, sir.",)
+and formal arguments are taken as fun(item,**keywords,*arguments)--Then it throws syntax error because it consists of format
+(Positional argument,Key word argument,Positional argument)
+
+-----------------------------------------------------------------------------------------------
+
+We can use the zip file to pack known ,Unknown by the taking the inputs for 
+Ex:
+    
+    Ques=['Name','Age','Gender']
+    Ans =input('Name,Age,Gender:').split(',')
+    for q,a in zip(Ques,Ans):
+        print(f'What is your {q}?,  It is {a}')
+    
+    output:
+    Name,Age,Gender:mahi,22,M
+    What is your Name?,  It is mahi
+    What is your Age?,  It is 22
+    What is your Gender?,  It is M
+
+-----------------------------------------------------------------------------------------------
+
+def fib(n):
+    a,b=0,1
+    while a<n:
+        print(a,end=' ')
+        a,b=b,a+b
+    print()
+
+fib(5)
+ 
+-----------------------------------------------------------------------------------------------
+           
+import json 
+
+user_data='''{ "people":[
+                        {
+                            "name":"mahi",
+                            "age":"22",
+                            "Licence":true
+                        },
+                        {
+                            "name":"rakesh",
+                            "age":"23",
+                            "Licence":false
+                        }
+                        ]}'''
+
+data = json.loads(user_data)
+print(data)
+print(type(data['people']))
+#print(data)
+for user in data['people']:
+    del user['age']
+
+
+
+By using the loads we can load the string kind of data into the json :
+
+Steps to convert the dictionary stored objects into the string (i.e to load the data to json ):
+1.Use the multi-string line quotes to convert to a string.
+2.If it is dictionary then use the (" ")double quotes to take the (variables)key,values.
+3.To do opearrtions on the string that is loaded into json we can convertit to list and perform the operations.
+Ex:   print(type(data['people']))   #Converted to list.
+4.Operations performed ==>for user in data['people']:
+                              del user['age']
+
+
+Then to convert the data back to the object that is taken we can use the keyword 'json.dumps'
+
+1.We can simply write to check the data is converted or not by 
+    new_string = json.dumps(data)
+Where this will give a single line output,To overcome this we use "indent" so that we can set the intendations
+    new_string = json.dumps(data,indent=2)
+Where this will be printed with proper intendation we set but to sort the values or keys we use the "sort_keys" or "sort_items".
+    new_string = json.dumps(data,indent=2,sort_keys=True)
+new_string = json.dumps(data,indent=2,sort_keys=True)
+
+print(new_string)
+
+Output:
+        #<class 'list'> where as type will be list while we perform in the  list          vvvf
+{
+    "people": [
+    {
+      "Licence": true,
+      "name": "mahi"
+    },
+    {
+      "Licence": false,
+      "name": "rakesh"
+    }
+        ]
+}
+
+-----------------------------------------------------------------------------------------------
+
+import os
+os.mkdir('OS-Demo-2') #create a file in the current repositary
+os.rmdir('OS-Demo-2') #Delete a file in the current repositary
+print(os.listdir())   #To get the entire files like a list that are in the repositary we use the syyntax=>os.listdir()
+
+
+#To know the dirpath,dirnames,filenames we use the syntax => os.walk('Path-name')
+we get in the format of three tuples and here we get the three values i.e written in the loops
+It started at the currect path and it goes into each file in the environment and untill the tree ends it will print the data.
+
+
+for dirpath,dirnames,filenames in os.walk('/home/ec2-user/environment'):
+    print('Current Path:',dirpath)
+    print('Directories:',dirnames)
+    print('Files:',filenames)
+    print()
+  
+Use:
+    You know you missed a file you can check through the os.walk() method or get the tree structure
+           
+
+
+print(os.environ.get('HOME'))
+=> We can get the home directory by printing the above line we will get the home directory(i.e '/home/ec2-user' is my home directory)
+
+os.path(MODULE)
+=>It is easy to define paths of the directory by using this 
+
+file_path = os.path.join(os.environ.get('HOME'),'text.txt')
+print(file_path)
+
+os.path.exit('path')#To check whether this file exits or not
+os.path.file('path')
+
+print(dir(os.path)) #To check the different of methods in this os.path methods.
+
+#os.path.join is used to get the path correctly where the relative path is given correctly including '/'.
+file_path = os.path.join(os.environ.get('HOME'),'text.txt')
+print(file_path)
+output:     
+       /home/ec2-user//text.txt
 
 
 
