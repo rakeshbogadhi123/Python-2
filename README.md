@@ -1,3 +1,3 @@
 # Python
-My learnings in python
-check out python_document
+# My learnings in python
+# check out python_document
