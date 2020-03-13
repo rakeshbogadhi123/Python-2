@@ -1,3 +1,25 @@
+Input:
+6
+CSK;RR;win
+RR;DD;draw
+MI;KKR;win
+SH;RR;loss
+CSK;DD;draw
+MI;DD;draw
+
+Output:
+Team                    | MP |  W |  D |  L |  P |
+CSK                     |  2 |  1 |  1 |  0 |  4 |
+MI                      |  2 |  1 |  1 |  0 |  4 |
+RR                      |  3 |  1 |  1 |  1 |  4 |
+DD                      |  3 |  0 |  3 |  0 |  3 |
+KKR                     |  1 |  0 |  0 |  1 |  0 |
+SH                      |  1 |  0 |  0 |  1 |  0 |
+
+
+---------------------------------------------------
+
+
 n=int(input())
 d={};d1={}
 for i in range(n):
