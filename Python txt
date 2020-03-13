@@ -89,7 +89,43 @@ for team,team_attr in result_dic:
     ' |'+' {:>2}'.format(team_attr['draw'])+
     ' |'+' {:>2}'.format(team_attr['loss'])+
     ' |'+' {:>2}'.format(team_attr['p'])+' |')
-    
-    
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+import datetime
+from datetime import datetime , date
+def addyears(d,years):
+    try:
+        return d.replace(year = d.year + years)
+    except ValueError:
+        #leap 
+        return d+(date(d.year+years,1,1)-date(d.year,1,1))
+
+string = input()
+year_in_int = int(input())
+date_obj = datetime.strptime(string,'%b %d %Y')
+print(addyears(datetime.date(date_obj),year_in_int),end='')
+
+
+'''
+from datetime import datetime  , timedelta
+string = input()
+year_in_int = int(input())
+date_obj = datetime.strptime(string,'%b %d %Y')
+date_obj = date_obj.date()
+result_date = date_obj + relativedelta(years=1)
+#result_date = date_obj.year+year_in_int
+#date_obj = date_obj.replace(result_date)
+print(result_date,end='')
+'''
+Input:
+Jul 11 2014
+-2
+
+Output:
+2012-07-11
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
     
     
