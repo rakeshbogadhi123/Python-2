@@ -277,7 +277,7 @@ for i in range(len(n)):
         b.append(float(e)-float(r))
     elif n[i]=='*' or n[i]==x:
         b.append(float(e)*float(r))
-    elif n[i]=='/' or n[i]==x:
+    elif n[i]=='/' or n[i]==x: 
         b.append((float(e))//(float(r)))
         
 if y=='+':
@@ -519,4 +519,56 @@ Haran
 
 
 ---------------------------------------------------
+
+import time
+def def_time(s):
+    print(s.tm_year)
+    print(s.tm_mon)
+    print(s.tm_mday)
+    print(s.tm_hour)
+    print(s.tm_min)
+    print(s.tm_sec)
+    print(s.tm_wday)
+    print(s.tm_yday)
+    print(s.tm_mon)
+    print(s.tm_isdst)
+
+print("gm-time is printed")
+def_time(time.gmtime())
+#time since utc
+print("Local-time is printed")
+def_time(time.localtime())
+print(time.gmtime(36000))
+
+Input:
+12,12,1,2,2,4
+
+Output:
+gm-time is printed
+2020
+3
+14
+9
+45
+4
+5
+74
+3
+0
+Local-time is printed
+2020
+3
+14
+9
+45
+4
+5
+74
+3
+0
+time.struct_time(tm_year=1970, tm_mon=1, tm_mday=1, tm_hour=10, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=1, tm_isdst=0)
+
+
+---------------------------------------------------
+
 
