@@ -106,5 +106,44 @@ print(soup.find_all('h1'))
 print(soup.find_all('h2'))
 print(soup.find_all('h3'))
 
-________________________________________________________________________________________
+_______________________________Print Headings in the HTML File_________________________________________________________
 
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get('https://python.org').text
+
+soup = BeautifulSoup(r,'lxml')
+
+for heading in soup.find_all(['h1','h2','h3']):
+    print(heading.name+' '+heading.text)
+
+#print(soup.find_all('h1','h2','h3'))
+
+
+OUTPUT:
+
+h1 
+
+
+h1 Functions Defined
+h1 Compound Data Types
+h1 Intuitive Interpretation
+h1 Quick & Easy to Learn
+h1 All the Flow You�d Expect
+h2 Get Started
+h2 Download
+h2 Docs
+h2 Jobs
+h2 Latest News
+h2 Upcoming Events
+h2 Success Stories
+h2 Use Python for�
+h2 
+>>> Python Enhancement Proposals (PEPs): The future of Python is discussed here.
+ RSS
+
+h2 
+>>> Python Software Foundation
+
+________________________________________________________________________________________
