@@ -33,6 +33,7 @@ print(request.url)
 #print(result)
 
 ________________________________________________________________________________________
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -77,4 +78,21 @@ soup = BeautifulSoup(r,'html.parser')
 print(soup.a['href'])
 
 
+________________________________To Get The Required Attrs in HTML________________________________________________________
+
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get('https://python.org').text
+
+soup = BeautifulSoup(r,'lxml')
+
+urls = []
+for i in soup.find_all('li'):
+    a = i.find('a')
+    urls.append(a.attrs['href'])
+    
+print(urls)
 ________________________________________________________________________________________
+
+
