@@ -95,4 +95,16 @@ for i in soup.find_all('li'):
 print(urls)
 ________________________________________________________________________________________
 
+import requests
+from bs4 import BeautifulSoup
+
+r = requests.get('https://python.org').text
+
+soup = BeautifulSoup(r,'lxml')
+print(soup.find_all('li'))
+print(soup.find_all('h1'))
+print(soup.find_all('h2'))
+print(soup.find_all('h3'))
+
+________________________________________________________________________________________
 
