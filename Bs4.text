@@ -71,4 +71,10 @@ for p in soup.find_all('p'):
 print(type(soup.find_all('p')))
 print(soup.find_all('p'))
 
+soup = BeautifulSoup(r,'html.parser')
+
+#print(soup.find('a').attrs['href'])
+print(soup.a['href'])
+
+
 ________________________________________________________________________________________
