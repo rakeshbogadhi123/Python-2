@@ -1,0 +1,24 @@
+from requests import get
+url = 'http://www.imdb.com/search/title?release_date=2017&sort=num_votes,desc&page=1'
+response = get(url)
+print(response.text[:500])
+-------------------------OUTPUT---------------------------------------------
+<!DOCTYPE html>
+<html
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="http://www.facebook.com/2008/fbml">
+    <head>
+         
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="apple-itunes-app" content="app-id=342792525, app-argument=imdb:///?src=mdot">
+
+
+
+        <script type="text/javascript">var IMDbTimer={starttime: new Date().getTime(),pt:'java'};</script>
+
+<script>
+    if (typeof uet == 'function') {
+      uet("bb", "LoadTitle")
+________________________________________________________________________________________
