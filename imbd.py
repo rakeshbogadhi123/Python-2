@@ -15,6 +15,6 @@ for year in soup.find_all('span',class_='secondaryInfo'):
 for rating in soup.find_all('strong'):
     ratings.append(rating.text)
 
-movie_year_dict = {movies[i]:{years[i]:rating[i]} for i in range(len(movies))}
+movie_year_dict = {movies[i]:{years[i]:ratings[i]} for i in range(len(movies))}
 
 print(movie_year_dict)
